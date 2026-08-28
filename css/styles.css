@@ -5,30 +5,29 @@
 - Acento: #a13d2b
 - Fondo: #fdfbf5
 - Fondo (por probar): #EBE5D8
-
 */
+
 :root {
   /* === Papel / tarjetas === */
   --color-papel: #f3ead6;
   --color-papel-alt: #fdfbf5;
-  --color-texto-oscuro: #3a3128;    /* texto sobre papel */
+  --color-texto-oscuro: #3a3128;
   --color-texto-oscuro-secundario: #8a7a5f;
 
-  /* === Texto sobre fondo oscuro === */
   --color-texto-claro: #f0e4c8;
-  --color-texto-claro-fuerte: #f5ead0;  /* títulos, más blanco */
-  --color-texto-claro-tenue: #cbb98f;   /* etiquetas secundarias, nav */
+  --color-texto-claro-fuerte: #f5ead0;
+  --color-texto-claro-tenue: #cbb98f;
 
   /* === Acento === */
   --color-acento: #a13d2b;
-  --color-acento-claro: #e8b98a;    /* texto sobre botones outline */
+  --color-acento-claro: #e8b98a;
 
   /* === Detalles físicos === */
   --color-cinta: rgba(230, 215, 180, 0.75);
   --color-cinta-borde: rgba(180, 160, 120, 0.4);
   --color-borde-divisor: #5c4830;
 
-  /* === Neutros (entrada, estuche de CD, textos de alto contraste) === */
+  /* === Neutros === */
   --color-negro: #000;
   --color-blanco: #ffffff;
   --color-texto-alto-contraste: #1a1a1a;
@@ -39,14 +38,14 @@
   --color-lomo-oscuro: #101010;
   --color-lomo-claro: #222222;
 
-  /* === Tripletas RGB (para usar con alpha vía rgba(var(--rgb-x), N)) === */
+  /* === RGB === */
   --rgb-negro: 0, 0, 0;
   --rgb-blanco: 255, 255, 255;
   --rgb-overlay: 20, 14, 9;
   --rgb-fade: 10, 7, 5;
   --rgb-concierto-fondo: 12, 8, 6;
-  --rgb-acento: 161, 61, 43;              /* = --color-acento */
-  --rgb-texto-claro-fuerte: 245, 234, 208; /* = --color-texto-claro-fuerte */
+  --rgb-acento: 161, 61, 43;
+  --rgb-texto-claro-fuerte: 245, 234, 208;
   --rgb-boton-oscuro: 20, 20, 20;
 
   /* === Fondos de imagen === */
@@ -179,7 +178,6 @@ a { color: inherit; }
   box-shadow: none;
 }
 
-/* Mantener el tamaño de texto a 20px y el espaciado adecuado */
 .header--transparente .nav__link {
   background-image: none;
   font-size: 20px;
@@ -193,7 +191,7 @@ a { color: inherit; }
   flex-direction: column;
   justify-content: space-between;
   gap: 5px;
-  width: 28px; /* Ancho necesario para que span 100% funcione */
+  width: 28px;
   height: 20px;
   background: none;
   border: none;
@@ -210,7 +208,6 @@ a { color: inherit; }
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Menú horizontal (escritorio) — oculto por defecto, se muestra en el breakpoint */
 .nav {
   display: none;
   gap: var(--space-sm);
@@ -232,7 +229,6 @@ a { color: inherit; }
 }
 .nav__link:hover { filter: brightness(1.15); color: var(--color-acento); }
 
-/* Menú desplegable móvil (simple, sin imagen) */
 .nav-mobile {
   display: none;
   flex-direction: column;
@@ -256,7 +252,7 @@ a { color: inherit; }
   overflow: hidden; 
 }
 /* ===================================================================
-   COMPONENTE: PANEL DE LADRILLO (Hero, Bio, "Pertenecemos a")
+   COMPONENTE: PANEL DE LADRILLO
    =================================================================== */
 /* .brick-panel {
   position: relative;
@@ -453,13 +449,13 @@ a { color: inherit; }
   position: relative;
 
   background-image:
-    /* 1. DEGRADADO VERTICAL: funde el borde superior o inferior */
+    /* DEGRADADO VERTICAL: funde el borde superior o inferior */
     linear-gradient(var(--seccion-fade-v, to bottom), rgb(var(--rgb-fade)) 0%, transparent 20%),
 
-    /* 2. DEGRADADO HORIZONTAL: oscurece de un lado a otro */
+    /* DEGRADADO HORIZONTAL: oscurece de un lado a otro */
     linear-gradient(var(--seccion-fade-h, to right), rgb(var(--rgb-fade)) 0%, rgba(var(--rgb-fade), 0.7) 60%, rgba(var(--rgb-fade), 0.1) 100%),
 
-    /* 3. IMAGEN DE FONDO */
+    /* IMAGEN DE FONDO */
     var(--seccion-img);
 
   background-size: cover, cover, var(--seccion-zoom, 250%);
@@ -512,7 +508,7 @@ a { color: inherit; }
   opacity: 0.12;
 }
 /* ===================================================================
-   HERO (Portada)
+   HERO
    =================================================================== */
 .hero {
   position: relative;
@@ -538,11 +534,7 @@ a { color: inherit; }
   z-index: -1;
   will-change: transform;
 }
-/* --- Base / fallback: navegadores sin soporte de scroll-driven animations ---
-   El título queda fijo abajo del hero, sobre el degradado claro->oscuro
-   que ya aplica el propio fondo del hero (--overlay-oscuro). El overlay
-   negro extra de oscurecimiento por scroll se anula (opacity: 0) porque
-   sin "animation-timeline" la animación se completaría de golpe. */
+/* --- Base / fallback: navegadores sin soporte de scroll-driven animations --- */
 .hero__overlay{
   position: absolute;
   inset: 0;
@@ -564,7 +556,7 @@ a { color: inherit; }
   .hero__overlay,
   .hero__content {
     will-change: transform, opacity;
-    transform: translateZ(0); /* Forzado a capa GPU */
+    transform: translateZ(0);
   }
   .hero__overlay{
     animation: hero-oscurecer linear;
@@ -612,7 +604,7 @@ a { color: inherit; }
   overflow: visible !important;
 }
 
-/* El botón no existe en ordenador */
+/* Sólo para móvil */
 .bio__btn-leer-mas {
   display: none !important;
 }
@@ -645,13 +637,12 @@ a { color: inherit; }
 }
 
 /* ===================================================================
-   ESTUCHE DE DISCOGRAFÍA (selector de álbumes tipo caja de CD)
+   ESTUCHE DE DISCOGRAFÍA (selector de álbumes tipo jewel-case)
    =================================================================== */
 .discografia__card {
   margin: 0 auto;
 }
 
-/* CONTENEDOR GENERAL */
 .jewel-case-container {
   width: 100%;
   max-width: 480px;
@@ -674,7 +665,6 @@ a { color: inherit; }
   transform: scale(1.05);
 }
 
-/* Ligero baño de luz general sobre TODO el estuche (cristal, lomo y bordes) */
 .jewel-case::after {
   content: '';
   position: absolute;
@@ -760,10 +750,9 @@ a { color: inherit; }
   user-select: none;
 }
 
-/* MARCO PLÁSTICO DE CRISTAL */
+/* MARCO PLÁSTICO */
 .jewel-case__marco {
   position: absolute;
-  /* Extendemos el marco 3px para que sobresalga por arriba, abajo y derecha */
   top: -3px;
   bottom: -3px;
   right: -3px;
@@ -771,7 +760,6 @@ a { color: inherit; }
   pointer-events: none;
   z-index: 2;
 
-  /* Reemplazamos el rgba translúcido por un color sólido */
   border-top: 3px solid var(--color-marco-plata);
   border-right: 3px solid var(--color-marco-plata);
   border-bottom: 3px solid var(--color-marco-plata);
@@ -790,7 +778,7 @@ a { color: inherit; }
   box-shadow: inset -2px 0 10px rgba(var(--rgb-negro), 0.3);
 }
 
-/* LOMO NEGRO ESTRIADO CON DIVISORIA GRIS */
+/* LOMO NEGRO ESTRIADO */
 .jewel-case__marco::before {
   content: '';
   position: absolute;
@@ -896,7 +884,6 @@ a { color: inherit; }
   color: var(--color-acento);
 }
 
-/* Titulo a un lado, jewel-case al otro (mismo patrón que Próximo concierto) */
 .discografia-split {
   display: flex;
   flex-direction: column;
@@ -926,7 +913,7 @@ a { color: inherit; }
    =================================================================== */
 .pagina-conciertos {
   height: 100vh;
-  height: 100dvh; /* evita que la barra de direcciones móvil recorte la sección */
+  height: 100dvh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-padding-top: var(--header-height);
@@ -935,7 +922,7 @@ a { color: inherit; }
     linear-gradient(to right, rgba(10, 7, 5, 0.9) 0%, rgba(10, 7, 5, 0.7) 60%, rgba(10, 7, 5, 0.35) 80%),
     url('../img/concierto.jpg');
   background-position: 32% 52%;
-  background-attachment: fixed; /* Mantiene la imagen congelada al hacer scroll */
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 200%;
 }
@@ -954,7 +941,6 @@ a { color: inherit; }
   box-shadow: none !important;
 }
 
-/* Mantiene el logotipo visible siempre en modo transparente */
 .pagina-conciertos .header--hero-mode .header__logo {
   opacity: 1 !important;
   transform: scale(1) !important;
@@ -1066,7 +1052,6 @@ a { color: inherit; }
   text-shadow: 0 4px 18px rgba(var(--rgb-negro), 0.55);
 }
 
-/* Cuerpo: cartel + info, agrupados en la mitad derecha de la sección */
 .concierto-cuerpo {
   display: flex;
   flex-direction: column;
@@ -1088,7 +1073,6 @@ a { color: inherit; }
   transform: rotate(-3deg) scale(1.05);
 }
 
-/* Ligero baño de luz general sobre TODO el cartel (imagen y cinta) */
 .cartel::after {
   content: '';
   position: absolute;
@@ -1111,8 +1095,6 @@ a { color: inherit; }
   box-shadow: 0 20px 40px rgba(var(--rgb-negro), 0.6);
 }
 
-/* La cinta escala siempre en proporción al ancho del propio
-   cartel */
 .cartel__cinta {
   position: absolute;
   z-index: 2;
@@ -1182,12 +1164,11 @@ a { color: inherit; }
   text-shadow: 0 1px 8px rgba(var(--rgb-negro), 0.85);
 }
 
-/* Marco del mapa: borde de acento + sombra, a juego con .cartel */
 .concierto-info__mapa {
   width: 100%;
-  max-width: 280px; /* Reducido para hacer el mapa más estrecho */
-  aspect-ratio: 16 / 9; /* O ajusta a tu preferencia (ej. 16/9 o 4/3) */
-  margin-left: auto; /* Centra el mapa si la info está centrada */
+  max-width: 280px;
+  aspect-ratio: 16 / 9;
+  margin-left: auto;
   margin-right: auto;
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -1201,7 +1182,6 @@ a { color: inherit; }
   height: 100%;
   border: 0;
   display: block;
-  /* Atenúa los colores "de app" del mapa para que no desentone */
   filter: grayscale(35%) sepia(12%) contrast(1.05) brightness(0.88);
 }
 
@@ -1222,7 +1202,6 @@ a { color: inherit; }
 
 /* ===================================================================
    CONCIERTOS — PASADOS
-   (entrada/ticket individual + agrupación por año, usados en conciertos.html)
    =================================================================== */
 .entrada-container {
   max-width: 780px;
@@ -1352,29 +1331,28 @@ a { color: inherit; }
   letter-spacing: 2px;
 }
 
-/* Ajuste en el talón para organizar el texto y el botón verticalmente */
 .entrada__talon {
   position: relative;
   width: 70px;
   flex-shrink: 0;
   display: flex;
-  flex-direction: column; /* Organiza en columna */
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around; /* Distribuye el texto y el botón */
+  justify-content: space-around;
   padding: var(--space-sm) 0;
   border-left: 2px dashed rgba(var(--rgb-negro), 0.25);
 }
 
-/* Texto vertical ENTRADA con letra Impact */
+/* Texto vertical ENTRADA */
 .entrada__texto-vertical {
-  font-family: var(--fuente-titulo); /* Aplica Impact, 'Arial Narrow', sans-serif */
+  font-family: var(--fuente-titulo);
   font-size: 40px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--color-texto-alto-contraste);
-  opacity: .8; /* Estilo impreso de ticket */
+  opacity: .8;
   writing-mode: vertical-rl;
-  transform: rotate(180deg); /* Orientación de lectura de abajo hacia arriba */
+  transform: rotate(180deg);
   user-select: none;
 }
 
@@ -1394,7 +1372,7 @@ a { color: inherit; }
 .entrada__btn:hover { filter: brightness(1.15); }
 
 /* ===================================================================
-   PANEL CONCIERTOS PASADOS (AJUSTES DE TAMAÑO INTERMEDIO Y SATURACIÓN)
+   PANEL CONCIERTOS PASADOS
    =================================================================== */
 
 .pasados-panel {
@@ -1420,7 +1398,6 @@ a { color: inherit; }
   height: 300px;
 }
 
-/* Líneas divisorias del selector un poco menos saturadas (suavizadas al 65% de opacidad) */
 .pasados-panel__guia {
   position: absolute;
   top: 110px;
@@ -1476,7 +1453,6 @@ a { color: inherit; }
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-/* Espacio extra entre tickets de distintos años (clase añadida automáticamente por main.js) */
 .ticket--nuevo-anio {
   margin-top: 48px;
 }
@@ -1520,7 +1496,7 @@ a { color: inherit; }
    =================================================================== */
 .comunidad-banner {
   display: flex;
-  flex-direction: column-reverse; /* En móvil: texto abajo, logo arriba */
+  flex-direction: column-reverse;
   align-items: center;
   gap: var(--space-lg);
   max-width: 850px;
@@ -1556,7 +1532,7 @@ a { color: inherit; }
 .comunidad-banner__logo {
   width: 140px;
   height: 140px;
-  border-radius: 50%; /* Hace que el logo sea completamente circular */
+  border-radius: 50%;
   border: 4px solid var(--color-acento);
   object-fit: cover;
   box-shadow: var(--sombra-tarjeta);
@@ -1654,7 +1630,6 @@ a { color: inherit; }
   font-weight: 400;
 }
 
-/* Para compensar el header transparente */
 .album-layout__left,
 .album-layout__right {
   padding-top: calc(var(--header-height) + var(--space-xl));
@@ -1708,7 +1683,7 @@ a { color: inherit; }
 }
 .cancion-fila__cuerpo {
   flex: 1;
-  min-width: 0; /* permite que el título se trunque en vez de desbordar */
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1725,34 +1700,32 @@ a { color: inherit; }
   text-overflow: ellipsis;
 }
 
-/* Espectro de barras / barra de progreso */
 .cancion-fila__progreso {
   display: flex;
   align-items: flex-end;
-  gap: 1px;              /* antes 2px */
-  height: 20px;           /* antes 22px */
+  gap: 1px;
+  height: 20px;
   cursor: pointer;
 }
 .cancion-fila__progreso .barra-eq {
   flex: 1;
-  min-width: 1px;         /* antes 2px */
+  min-width: 1px;
   height: var(--h, 40%);
   background: var(--color-borde-divisor);
-  border-radius: 0.5px;   /* antes 1px */
+  border-radius: 0.5px;
   transition: background-color 0.15s ease;
 }
 .cancion-fila__progreso .barra-eq.activa {
   background: var(--color-acento-claro);
 }
 
-/* Control de volumen por fila */
 .cancion-fila__volumen {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-shrink: 0;
-  align-self: flex-end;   /* lo baja hasta la altura de las barras */
-  padding-bottom: 1px;    /* ajuste fino óptico */
+  align-self: flex-end;
+  padding-bottom: 1px;
 }
 .cancion-fila__vol-icono {
   color: var(--color-texto-claro-tenue);
@@ -1827,7 +1800,7 @@ a { color: inherit; }
 }
 
 /* ===================================================================
-   EL CD GIRATORIO
+   CD GIRATORIO
    =================================================================== */
 .cd-reproductor {
   display: flex;
@@ -1865,7 +1838,6 @@ a { color: inherit; }
   position: relative;
   box-shadow: 0 10px 30px rgba(var(--rgb-negro), 0.6);
   
-  /* Animación pausada por defecto */
   animation: girar-cd 4s linear infinite;
   animation-play-state: paused;
 
@@ -1895,7 +1867,7 @@ a { color: inherit; }
     rgba(255, 255, 255, 0.15) 315deg, 
     rgba(255, 255, 255, 0.02) 360deg
   );
-  opacity: 1; /* Ajusta este valor si quieres que el reflejo se note más o menos */
+  opacity: 1;
   mix-blend-mode: screen;
   pointer-events: none;
 }
@@ -2107,17 +2079,16 @@ a { color: inherit; }
   .concierto-info {
     max-width: none;
     text-align: left;
-    /* Convierte la info en un flexbox vertical */
     display: flex;
     flex-direction: column;
   }
   .concierto-info__datos { justify-content: flex-start; }
   .concierto-info__btn { width: auto; }
   .concierto-info__mapa {
-    max-width: 320px; /* O el tamaño máximo que prefieras en escritorio */
-    height: 160px;    /* Define una altura fija reducida */
-    flex-grow: 0;     /* Evita que se estire verticalmente */
-    margin-left: 0;   /* Mantiene la alineación a la izquierda */
+    max-width: 320px;
+    height: 160px;
+    flex-grow: 0;
+    margin-left: 0;
   }
   .concierto-info__ubicacion {
     display: flex;
@@ -2221,7 +2192,6 @@ a { color: inherit; }
     touch-action: pan-y !important;
   }
 
-  /* 2. Contenedor principal que realiza los saltos de pantalla */
   .app-wrapper {
     width: 100vw;
     height: 100dvh;
@@ -2231,7 +2201,6 @@ a { color: inherit; }
     will-change: transform;
   }
 
-  /* 3. Cada sección actúa como una diapositiva de 100% del alto */
   .hero,
   .seccion,
   .footer {
@@ -2297,19 +2266,17 @@ a { color: inherit; }
     left: 0;
     width: 100vw;
     height: 100vh;
-    height: 100dvh; /* Soporte para navegadores móviles con barra de navegación */
+    height: 100dvh;
     background-image: var(--textura-cuero);
     background-repeat: repeat;
     background-size: auto;
     
-    /* Layout centrado para los enlaces */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 
-    /* Animación de entrada: deslizamiento hacia abajo + fade */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
@@ -2397,14 +2364,14 @@ a { color: inherit; }
   }
 
   .entradas-grid, 
-  .tickets-container { /* Sustituye por la clase contenedora de tus entradas */
+  .tickets-container {
     display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    gap: 20px; /* Espacio entre cada entrada */
+    flex-direction: column;
+    gap: 20px;
   }
   
   .entrada, 
-  .ticket { /* Sustituye por la clase individual de cada entrada */
+  .ticket {
     width: 100%;
     margin: 0; 
   }
@@ -2427,12 +2394,12 @@ a { color: inherit; }
 
   .nav-toggle {
     position: relative;
-    z-index: 1001; /* Queda sobre el menú desplegado */
+    z-index: 1001;
   }
   .nav-toggle span {
     display: block;
     width: 100%;
-    height: 4px; /* Líneas más gruesas y legibles */
+    height: 4px;
     background-color: var(--color-texto-claro);
     border-radius: 4px;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -2496,7 +2463,7 @@ a { color: inherit; }
   .bio__texto {
     font-size: 0.98rem !important;
     line-height: 1.65 !important;
-    text-align: left !important; /* Evita huecos extraños entre palabras en pantallas estrechas */
+    text-align: left !important;
     letter-spacing: 0.2px;
   }
 
@@ -2515,7 +2482,7 @@ a { color: inherit; }
     left: 50% !important;
     right: auto !important;
     bottom: auto !important;
-    transform: translate(-50%, -50%) !important; /* Desplaza el centro exacto de la imagen al eje central */
+    transform: translate(-50%, -50%) !important;
     
     
     
@@ -2523,8 +2490,8 @@ a { color: inherit; }
     background-position: center center !important;
     background-size: contain !important;
     opacity: 0.12;
-    pointer-events: none; /* Evita que bloquee la selección o clics del contenido */
-    z-index: 1; /* Permite que quede por detrás del texto de la tarjeta (z-index: 2) */
+    pointer-events: none;
+    z-index: 1;
   }
 
   #bio.seccion--espuma {
@@ -2582,7 +2549,7 @@ a { color: inherit; }
   #concierto .tarjeta {
     padding: 1rem 1.25rem !important;
   }
-  /* Ocultar la lista de canciones en móvil */
+ 
   .album-layout__left {
     display: none !important;
   }
@@ -2593,7 +2560,6 @@ a { color: inherit; }
     display: none !important;
   }
 
-  /* --- Página de Conciertos --- */
   .pagina-conciertos{
     background-size: cover;
   }
@@ -2611,8 +2577,8 @@ a { color: inherit; }
   }
   
   .conciertos-nav-flotante.is-top {
-    bottom: auto; /* Anula la posición inferior */
-    top: 70px;   /* Lo mueve a la parte superior de la pantalla */
+    bottom: auto;
+    top: 70px;
   }
   .entrada {
     flex-direction: column;
@@ -2639,9 +2605,6 @@ a { color: inherit; }
     right: -50px;
   }
 
-  /* --- Selector de años + lista de tickets (rueda) ---
-     En escritorio es una fila de 600px de alto con la rueda a un lado;
-     en móvil pasa a apilarse y se reducen los altos fijos. */
   .pasados-panel {
     flex-direction: column;
     gap: var(--space-lg);
@@ -2668,8 +2631,6 @@ a { color: inherit; }
     height: 60vh;
   }
 
-  /* Nombre/año del disco en el estuche: a 40px se salía en pantallas
-     pequeñas (ej. "EP The First · 2026" en 328px de ancho útil) */
   .jewel-case__nombre,
   .jewel-case__anio,
   .jewel-case__anio::before {
