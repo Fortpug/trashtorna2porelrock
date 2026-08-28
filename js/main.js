@@ -469,7 +469,7 @@ if (btnToggle && seccionPasados) {
 
 // --- Imagen "de repuesto" para tickets sin cartel (conciertos.html) ---
 const TOTAL_TICKETS_REPUESTO = 9;
-const RUTA_TICKETS_REPUESTO = '../img/tickets/';
+const RUTA_TICKETS_REPUESTO = 'img/tickets/';
 
 document.querySelectorAll('.entrada__cartel').forEach(img => {
   const aplicarRepuesto = function () {
