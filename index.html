@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trashtorna2 por el Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header header--hero-mode" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">Trashtorna2 por el Rock</a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="/" class="nav__link nav__link--active">Inicio</a>
+        <a href="conciertos.html" class="nav__link">Conciertos</a>
+        <a href="album-the-first.html" class="nav__link">Música</a>
+        <a href="/#contacto" class="nav__link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" id="navMobile">
+    <a href="/" class="nav__link nav__link--active">Inicio</a>
+    <a href="conciertos.html" class="nav__link">Conciertos</a>
+    <a href="album-the-first.html" class="nav__link">Música</a>
+    <a href="/#contacto" class="nav__link">Contacto</a>
+  </nav>
+  <main class="app-wrapper">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__content">
+        <h1 class="hero__title">Trashtorna2 por el Rock</h1>
+      </div>
+    </section>
+    <!-- ============ BIO ============ -->
+    <section id="bio" class="seccion seccion--foto seccion--espuma">
+      <div class="seccion__marca seccion__marca--izq" aria-hidden="true"></div>
+      <div class="seccion__marca seccion__marca--der" aria-hidden="true"></div>
+      <div class="contenedor">
+        <article class="tarjeta bio__card">
+          <h2 class="section-title tarjeta__titulo" style="color: var(--color-acento);">Propuesta musical</h2>
+          <div class="bio__wrapper" id="bioWrapper">
+            <div class="bio__bloque">
+              <span class="bio__subtitulo">El Estilo</span>
+              <p class="bio__texto">Rock de barrio en verso libre. Guitarras desenfadadas, batería con pegada y bajo con mordida.</p>
+            </div>
+
+            <div class="bio__bloque">
+              <span class="bio__subtitulo">La Letra</span>
+              <p class="bio__texto">Historias reales de vivencias del día a día para que te veas reflejado en cada canción.</p>
+            </div>
+
+            <div class="bio__bloque">
+              <span class="bio__subtitulo">El Directo</span>
+              <p class="bio__texto">Rock honesto para todo tipo de escenarios: desde festivales y pubs hasta asociaciones y bares.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- ============ DISCOGRAFÍA ============ -->
+    <section id="discografia" class="seccion seccion--foto seccion--guitarra">
+      <div class="contenedor discografia-split">
+
+        <h2 class="discografia-titulo-grande">Últimos<br>lanzamientos</h2>
+
+        <div class="discografia-cuerpo">
+          <div class="jewel-case-container">
+          
+          <div class="jewel-case">
+            <div class="jewel-case__ventana" id="jewelVentana">
+              <div class="jewel-case__pista">
+                
+                <!-- ÁLBUM 1 -->
+                <div class="jewel-case__item" data-link="album-the-first.html" data-nombre="EP The First" data-anio="2026">
+                  <img src="img/album-the-first.jpg" alt="Portada The First">
+                </div>
+
+                <!-- PLACEHOLDER (PRÓXIMAMENTE) -->
+                <div class="jewel-case__item" data-link="#" data-nombre="Nuevo disco" data-anio="En camino">
+                  <div class="album-placeholder">
+                    <img src="img/logo.jpg" alt="" class="album-placeholder__logo">
+                    <span class="album-placeholder__texto">Próximamente...</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Marco decorativo de cristal y lomo -->
+            <div class="jewel-case__marco" aria-hidden="true"></div>
+          </div>
+
+          <!-- INFO DEL ÁLBUM VISIBLE -->
+          <div class="jewel-case__info">
+            <h3 class="jewel-case__nombre" id="jewelNombre">EP The First</h3>
+            <p class="jewel-case__anio" id="jewelAnio">2026</p>
+          </div>
+
+          <!-- BOTONERA TIPO REPRODUCTOR DE MÚSICA -->
+          <div class="jewel-case__controles">
+            
+            <!-- Canción/Álbum Anterior -->
+            <button class="jewel-case__btn jewel-case__btn--prev" aria-label="Anterior álbum" title="Anterior">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+              </svg>
+            </button>
+            
+            <!-- Play (Redirige a la página del disco) -->
+            <a href="discografia.html" class="jewel-case__btn jewel-case__btn--play" aria-label="Ir a la discografía" title="Ver disco">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </a>
+
+            <!-- Siguiente Canción/Álbum -->
+            <button class="jewel-case__btn jewel-case__btn--next" aria-label="Siguiente álbum" title="Siguiente">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+              </svg>
+            </button>
+
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============ PRÓXIMO CONCIERTO ============ -->
+    <section id="proximo-concierto" class="seccion seccion--foto seccion--bateria">
+      <div class="contenedor concierto-split">
+
+        <h2 class="concierto-titulo-grande">Próximo<br>concierto</h2>
+
+        <div class="concierto-cuerpo">
+
+          <!-- Cartel: pegado con cinta en las 4 esquinas -->
+          <div class="cartel">
+            <span class="cartel__cinta cartel__cinta--tl" aria-hidden="true"></span>
+            <span class="cartel__cinta cartel__cinta--tr" aria-hidden="true"></span>
+            <span class="cartel__cinta cartel__cinta--bl" aria-hidden="true"></span>
+            <span class="cartel__cinta cartel__cinta--br" aria-hidden="true"></span>
+            <img src="img/concierto-proximo.jpg" alt="Cartel de Primer Rabbit Fast Fest" class="cartel__imagen">
+          </div>
+
+          <!-- La info, ahora directamente sobre el fondo oscuro -->
+          <div class="concierto-info">
+            <h3 class="concierto-info__evento">I Rabbit Rock Fast Fest</h3>
+
+            <div class="concierto-info__datos">
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Fecha</span>
+                <span class="concierto-info__dato-valor">29 agosto</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Hora</span>
+                <span class="concierto-info__dato-valor">21:00h</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Ubicación</span>
+                <span class="concierto-info__dato-valor">Taberna César</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Entrada</span>
+                <span class="concierto-info__dato-valor">Libre</span>
+              </div>
+            </div>
+
+            <button class="btn btn--accent concierto-info__btn" id="btnInfoConcierto">Más detalles...</button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ COMUNIDAD / SELLO ============ -->
+    <section id="comunidad" class="seccion seccion--foto seccion--microfono">
+      <div class="contenedor">
+        <article class="tarjeta comunidad-banner">
+          
+          <!-- Contenido a la izquierda -->
+          <div class="comunidad-banner__contenido">
+            <span class="comunidad-banner__etiqueta">Pertenecemos a</span>
+            <h2 class="comunidad-banner__titulo">Rabbit Hole Distortion Records</h2>
+            <p class="comunidad-banner__texto">
+              <b>Rabbit Hole Distortion Records</b> nace con la intención de reunir talento, impulsar proyectos y fortalecer una comunidad de músicos y seguidores que entienden el rock como una forma de expresión honesta y sin artificios.
+              <b>Autogestión</b>, sello boutique de calidad, comunidad rockera de autor y construcción de un verdadero movimiento underground.
+              <br><b class="comunidad--lema">Rock de verdad para gente auténtica</b>
+            </p>
+          </div>
+          
+          <!-- Logo a la derecha -->
+          <img src="img/rabbit.png" alt="Logo de la comunidad" class="comunidad-banner__logo">
+
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO Y REDES ============ -->
+    <section id="contacto" class="footer seccion--foto seccion--marshall">
+      <div class="seccion__marca seccion__marca--centro" aria-hidden="true"></div>
+      <div class="contenedor">
+        <h2 class="section-title">Contacto y redes</h2>
+        <div class="contacto__redes">
+          <a href="https://www.instagram.com/trashtorna2_por_el_rock/" target="_blank" class="icon-circle icon-circle--lg" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@Trashtorna2porelRock" target="_blank" class="icon-circle icon-circle--lg" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="5" width="20" height="14" rx="4"/>
+              <path d="M10 9l6 3-6 3V9z" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://open.spotify.com/intl-es/artist/34YvT3tAy18dHDUmKqzZE9?si=517ca54a2de1491e" target="_blank" class="icon-circle icon-circle--lg" aria-label="Spotify">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M7 10c3.5-1 6.5-1 10 0.5M7.5 13c2.8-0.8 5.2-0.8 8 0.3M8 16c2-0.6 4-0.6 6 0.3" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="contacto__directo">
+          <a href="mailto:trashtorna2xlrock@gmail.com" class="contacto__item">
+            <span class="icon-circle icon-circle--md">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M4 6l8 7 8-7"/>
+              </svg>
+            </span> trashtorna2xlrock@gmail.com
+          </a>
+        </div>
+        <hr class="contacto__divisor">
+        <p class="contacto__copyright">© 2026 Trashtorna2 por el Rock</p>
+      </div>
+    </section>
+  </main>
+  <dialog id="modalConcierto" class="modal">
+    <h3 class="tarjeta__titulo">Rabbit Fast Fest</h3>
+    <p><span class="modal__etiqueta">Fecha:</span><br> Sábado 29 de agosto 2026, 21:00h</p>
+    <p><span class="modal__etiqueta">Ubicación:</span><br> Taberna César, Barriada de Alcora (Canjáyar). Enlace a Google Maps <a href="https://maps.app.goo.gl/MYGNKJ98c8EE8YvZ9" target=_blank class="modal__enlace">aquí</a>.</p>
+    <p><span class="modal__etiqueta">Entrada:</span><br> Gratis</p>
+    <p><span class="modal__etiqueta">Bandas:</span><br> Trashtorna2 por el Rock, Satürno</p>
+    <button id="btnCerrarModal" class="btn btn--accent">Cerrar</button>
+  </dialog>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

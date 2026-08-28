@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conciertos — Trashtorna2 por el Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pagina-conciertos">
+
+  <header class="header header--transparente" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">Trashtorna2 por el Rock</a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="/" class="nav__link">Inicio</a>
+        <a href="conciertos.html" class="nav__link nav__link--active">Conciertos</a>
+        <a href="album-the-first.html" class="nav__link">Música</a>
+        <!-- <a href="#" class="nav__link">Galería</a> -->
+        <!-- <a href="banda.html" class="nav__link">La banda</a> -->
+        <a href="/#contacto" class="nav__link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" id="navMobile">
+    <a href="index.html" class="nav__link">Inicio</a>
+    <a href="conciertos.html" class="nav__link nav__link--active">Conciertos</a>
+    <a href="album-the-first.html" class="nav__link">Música</a>
+    <a href="index.html#contacto" class="nav__link">Contacto</a>
+  </nav>
+
+  <!-- ============ CONCIERTOS PRÓXIMOS ============ -->
+  <section id="proximos" class="seccion seccion--concierto">
+    <div class="contenedor">
+      <!-- <h1 class="pagina-titulo">Conciertos próximos</h1> -->
+
+      <div class="concierto-item">
+        <div class="concierto-cuerpo">
+          <div class="cartel">
+            <span class="cartel__cinta cartel__cinta--tl" aria-hidden="true"></span>
+            <span class="cartel__cinta cartel__cinta--tr" aria-hidden="true"></span>
+            <span class="cartel__cinta cartel__cinta--bl" aria-hidden="true"></span>
+            <span class="cartel__cinta cartel__cinta--br" aria-hidden="true"></span>
+            <img src="img/concierto-proximo.jpg" alt="Cartel del próximo concierto" class="cartel__imagen">
+          </div>
+
+          <div class="concierto-info">
+            <h2 class="concierto-info__evento">I Rabbit Rock Fast Fest</h2>
+            
+            <div class="concierto-info__datos">
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Fecha</span>
+                <span class="concierto-info__dato-valor">29 agosto</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Hora</span>
+                <span class="concierto-info__dato-valor">21:00h</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Entrada</span>
+                <span class="concierto-info__dato-valor">Libre</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Bandas</span>
+                <span class="concierto-info__dato-valor">Trashtorna2 por el Rock, Satürno</span>
+              </div>
+            </div>
+
+            <div class="concierto-info__ubicacion">
+              <span class="concierto-info__dato-label">Ubicación</span>
+              <p class="concierto-info__direccion">Taberna César, Barriada de Alcora (Canjáyar)</p>
+
+              <div class="concierto-info__mapa">
+                <iframe
+                  src="https://www.google.com/maps?q=Taberna+César,Barriada+de+Alcora,Canjáyar&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <a href="https://maps.app.goo.gl/MYGNKJ98c8EE8YvZ9" target="_blank" class="concierto-info__enlace">Abrir en Google Maps →</a>
+            </div>
+          </div>
+          <!-- <div class="concierto-info">
+            <h2 class="concierto-info__evento">II Rabbit Fast Fest ft. We lost the west, Satürno</h2>
+
+            <div class="concierto-info__datos">
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Fecha</span>
+                <span class="concierto-info__dato-valor">8 noviembre</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Hora</span>
+                <span class="concierto-info__dato-valor">--:--h</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Entrada</span>
+                <span class="concierto-info__dato-valor">----</span>
+              </div>
+              <div class="concierto-info__dato">
+                <span class="concierto-info__dato-label">Bandas</span>
+                <span class="concierto-info__dato-valor">Trashtorna2 por el Rock, We lost the west, Satürno</span>
+              </div>
+            </div>
+
+            <div class="concierto-info__ubicacion">
+              <span class="concierto-info__dato-label">Ubicación</span>
+              <p class="concierto-info__direccion">Pub Dragonfly, Almería</p>
+
+              <div class="concierto-info__mapa">
+                <iframe
+                  src="https://www.google.com/maps?q=Taberna+César,Barriada+de+Alcora,Canjáyar&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <a href="https://maps.app.goo.gl/MYGNKJ98c8EE8YvZ9" target="_blank" class="concierto-info__enlace">Abrir en Google Maps →</a>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONCIERTOS PASADOS ============ -->
+  <section id="pasados" class="seccion seccion--foto seccion--pasados">
+    <div class="contenedor">
+      <!-- <h2 class="section-title">Conciertos pasados</h2> -->
+
+      <div class="pasados-panel">
+        <!-- Rueda de Años XL -->
+        <div id="ruedaWrap" class="pasados-panel__rueda-wrap">
+          <div class="pasados-panel__rueda-box">
+            <div class="pasados-panel__guia" aria-hidden="true"></div>
+            <div id="rueda" class="pasados-panel__rueda">
+              <div style="height:110px;"></div>
+              <div class="anio" data-anio="2026">2026</div>
+              <div class="anio" data-anio="2025">2025</div>
+              <div class="anio" data-anio="2024">2024</div>
+              <div class="anio" data-anio="2023">2023</div>
+              <div class="anio" data-anio="2022">2022</div>
+              <div style="height:110px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de Entradas -->
+        <div id="ticketsWrap" class="pasados-panel__tickets-wrap">
+          <div id="tickets" class="pasados-panel__tickets">
+            <div style="height:196px;"></div>
+
+            <!-- Entradas 2026 -->
+            <!-- 7 -->
+            <!-- <article class="entrada ticket" data-anio="2026">
+              <img src="img/concierto-2607.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">I Rabbit Rock Fast Fest ft. Satürno</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">29 agosto</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Taberna César, Alcora</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2607</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article> -->
+            <!-- 6 -->
+            <article class="entrada ticket" data-anio="2026">
+              <img src="img/concierto-2606.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Clasijazz ft. The River Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">26 julio</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Almería</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2606</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 5 -->
+            <article class="entrada ticket" data-anio="2026">
+              <img src="img/concierto-2605.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 por el Rock</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">12 julio</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Molinillo de la Abuela, Padules</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2605</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 4 -->
+            <article class="entrada ticket" data-anio="2026">
+              <img src="img/concierto-2604.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Noche cultural Gádor Rock</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">3 julio</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Gádor</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2604</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 3 -->
+            <article class="entrada ticket" data-anio="2026">
+              <img src="img/concierto-2603.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">II Qansayar Fest</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">26 junio</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2603</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 2 -->
+            <article class="entrada ticket" data-anio="2026">
+              <img src="img/concierto-2602.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Trashtorna2 por el Rock ft. Satürno (Gira E.P. The First)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">16 mayo</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Pub Saigón, El Ejido</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2602</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 1 -->
+            <article class="entrada ticket" data-anio="2026">
+              <img src="img/concierto-2601.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Spring Fest ft. Sprocket</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">21 febrero</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Pub Dragonfly, Almería</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2601</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+
+            <!-- Entradas 2025 -->
+            <!-- 4 -->
+            <article class="entrada ticket" data-anio="2025">
+              <img src="img/concierto-2504.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Actuación ft. Asociación Musical Eladio Guzmán</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">27 diciembre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2504</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 3 -->
+            <article class="entrada ticket" data-anio="2025">
+              <img src="img/concierto-2503.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Spring Fest</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">30 noviembre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Pub Dragonfly, Almería</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2503</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 2 -->
+            <article class="entrada ticket" data-anio="2025">
+              <img src="img/concierto-2502.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Marín Rock</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">18 octubre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Roquetas de Mar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2502</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 1 -->
+            <article class="entrada ticket" data-anio="2025">
+              <img src="img/concierto-2501.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">I Qansayar Rock de Autor</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">19 julio</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2501</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+
+            <!-- Entradas 2024 -->
+            <!-- 12 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2412.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">21 diciembre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">La esencia de la Alpujarra, Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2412</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 11 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2411.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">4º Aniversario Trashtorna2 Punkrock Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">30 noviembre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Taberna César, Alcora</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2411</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 10 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2410.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band (acústico)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">26 octubre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Bar Mesón San Marcos, Ohanes</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2410</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 09 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2409.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band (eléctrico)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">28 septiembre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Huécija</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2409</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 08 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2408.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Pase Trashtorna2 Punkrock Band (acústico)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">11 septiembre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Mary's bakery, Almería</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2408</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 07 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2407.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band (eléctrico)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">31 agosto</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Chiringuito Obelix, Granada</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2407</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 06 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2406.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">San Roque (eléctrico)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">18 agosto</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Beires</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2406</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 05 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2405.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Punkrock Band (eléctrico)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">4 agosto</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Molinillo de la abuela, Padules</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2405</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 04 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2404.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Noche cultural (acústico)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">3 agosto</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Plaza de la Constitución, Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2404</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 03 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2403.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">13 julio</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Taberna César, Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2403</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 02 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2402.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto privado</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">14 junio</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Moya, Huércal de Almería</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2402</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 01 -->
+            <article class="entrada ticket" data-anio="2024">
+              <img src="img/concierto-2401.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band (eléctrico)</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">6 mayo</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">El Golco, Granada</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2401</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+
+            <!-- Entradas 2023 -->
+            <!-- 03 -->
+            <article class="entrada ticket" data-anio="2023">
+              <img src="img/concierto-2303.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Elios Rock</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">Noviembre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Sin Cobertura, Roquetas de Mar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2303</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 02 -->
+            <article class="entrada ticket" data-anio="2023">
+              <img src="img/concierto-2302.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">Agosto</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Molinillo de la abuela, Padules</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2302</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 01 -->
+            <article class="entrada ticket" data-anio="2023">
+              <img src="img/concierto-2301.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Día de la Mujer ft. Dúo Costa de Almería</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">13 marzo</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Plaza de la Constitución, Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2301</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+
+            <!-- Entradas 2022 -->
+            <!-- 05 -->
+            <article class="entrada ticket" data-anio="2022">
+              <img src="img/concierto-2205.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">2º aniversario Trashtorna2 Punkrock Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">16 diciembre</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Taberna César, Alcora</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2205</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 04 -->
+            <article class="entrada ticket" data-anio="2022">
+              <img src="img/concierto-2204.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">1 julio</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Taberna César, Alcora</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2204</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 03 -->
+            <article class="entrada ticket" data-anio="2022">
+              <img src="img/concierto-2203.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Concierto Trashtorna2 Punkrock Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">26 marzo</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">La Esencia de la Alpujarra, Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2203</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 02 -->
+            <article class="entrada ticket" data-anio="2022">
+              <img src="img/concierto-2202.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">Día de la Mujer</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">13 marzo</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">Plaza de la Constitución, Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2202</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+            <!-- 01 -->
+            <article class="entrada ticket" data-anio="2022">
+              <img src="img/concierto-2201.jpg" alt="Cartel del concierto" class="entrada__cartel">
+              <div class="entrada__cuerpo">
+                <span class="entrada__tampon">SOLD<br>OUT</span>
+                <h4 class="entrada__evento">I directo Trashtorna2 Punkrock Band</h4>
+                <div class="entrada__datos">
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Fecha</span>
+                    <span class="entrada__dato-valor">26 febrero</span>
+                  </div>
+                  <div class="entrada__dato">
+                    <span class="entrada__dato-label">Ubicación</span>
+                    <span class="entrada__dato-valor">La esencia de la Alpujarra, Canjáyar</span>
+                  </div>
+                </div>
+                <div class="entrada__codigo">
+                  <div class="entrada__barras"></div>
+                  <span class="entrada__numero">T2XLR-2201</span>
+                </div>
+              </div>
+              <div class="entrada__talon">
+                <span class="entrada__texto-vertical">ENTRADA</span>
+              </div>
+            </article>
+
+            <div style="height:196px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="conciertos-nav-flotante">
+    <a href="#pasados" id="btnToggleConciertos" class="btn-scroll">
+      <span id="btnToggleTexto">Conciertos pasados</span>
+      <svg id="btnToggleIcono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m6 9 6 6 6-6"/>
+      </svg>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EP The First - Trashtorna2 por el Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Reutilizamos tu cabecera estándar -->
+  <header class="header header--hero-mode" id="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Trashtorna2 por el Rock</a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="/" class="nav__link nav__link--active">Inicio</a>
+        <a href="conciertos.html" class="nav__link">Conciertos</a>
+        <a href="album-the-first.html" class="nav__link">Música</a>
+        <a href="/#contacto" class="nav__link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" id="navMobile">
+    <a href="/" class="nav__link nav__link--active">Inicio</a>
+    <a href="conciertos.html" class="nav__link">Conciertos</a>
+    <a href="album-the-first.html" class="nav__link">Música</a>
+    <a href="#contacto" class="nav__link">Contacto</a>
+  </nav>
+
+  <main class="album-layout">
+    <!-- Mitad Izquierda: Lista de canciones -->
+    <section class="album-layout__left">
+      <div class="album-tracklist-container">
+        <div class="cancion-lista">
+          
+          <!-- Canción 1 -->
+          <div class="cancion-fila">
+            <button class="btn-play-pause" data-src="audio/todo-se-desvanece.mp3" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+
+            <div class="cancion-fila__cuerpo">
+              <div class="cancion-fila__cabecera">
+                <span class="cancion-fila__titulo">Todo se desvanece</span>
+                <span class="cancion-fila__duracion">3:56</span>
+              </div>
+              <div class="cancion-fila__progreso" data-progreso></div>
+            </div>
+
+            <div class="cancion-fila__volumen">
+              <svg class="cancion-fila__vol-icono" viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                <path d="M3 10v4h4l5 5V5L7 10H3z"/>
+              </svg>
+              <input type="range" class="cancion-fila__vol-slider" min="0" max="1" step="0.01" value="0.5" data-volumen aria-label="Volumen">
+            </div>
+          </div>
+
+          <!-- Canción 2 -->
+          <div class="cancion-fila">
+            <button class="btn-play-pause" data-src="audio/el-bebercio.mp3" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+
+            <div class="cancion-fila__cuerpo">
+              <div class="cancion-fila__cabecera">
+                <span class="cancion-fila__titulo">El bebercio</span>
+                <span class="cancion-fila__duracion">4:34</span>
+              </div>
+              <div class="cancion-fila__progreso" data-progreso></div>
+            </div>
+
+            <div class="cancion-fila__volumen">
+              <svg class="cancion-fila__vol-icono" viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                <path d="M3 10v4h4l5 5V5L7 10H3z"/>
+              </svg>
+              <input type="range" class="cancion-fila__vol-slider" min="0" max="1" step="0.01" value="0.5" data-volumen aria-label="Volumen">
+            </div>
+          </div>
+
+          <!-- Canción 3 -->
+          <div class="cancion-fila">
+            <button class="btn-play-pause" data-src="audio/gato-callejero.mp3" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+
+            <div class="cancion-fila__cuerpo">
+              <div class="cancion-fila__cabecera">
+                <span class="cancion-fila__titulo">Gato callejero</span>
+                <span class="cancion-fila__duracion">4:20</span>
+              </div>
+              <div class="cancion-fila__progreso" data-progreso></div>
+            </div>
+
+            <div class="cancion-fila__volumen">
+              <svg class="cancion-fila__vol-icono" viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                <path d="M3 10v4h4l5 5V5L7 10H3z"/>
+              </svg>
+              <input type="range" class="cancion-fila__vol-slider" min="0" max="1" step="0.01" value="0.5" data-volumen aria-label="Volumen">
+            </div>
+          </div>
+
+          <!-- Canción 4 -->
+          <div class="cancion-fila">
+            <button class="btn-play-pause" data-src="audio/doctor-rocanrol.mp3" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+
+            <div class="cancion-fila__cuerpo">
+              <div class="cancion-fila__cabecera">
+                <span class="cancion-fila__titulo">Doctor rocanrol</span>
+                <span class="cancion-fila__duracion">3:59</span>
+              </div>
+              <div class="cancion-fila__progreso" data-progreso></div>
+            </div>
+
+            <div class="cancion-fila__volumen">
+              <svg class="cancion-fila__vol-icono" viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                <path d="M3 10v4h4l5 5V5L7 10H3z"/>
+              </svg>
+              <input type="range" class="cancion-fila__vol-slider" min="0" max="1" step="0.01" value="0.5" data-volumen aria-label="Volumen">
+            </div>
+          </div>
+
+          <!-- Canción 5 -->
+          <div class="cancion-fila">
+            <button class="btn-play-pause" data-src="audio/mi-patria-mis-colegas.mp3" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+
+            <div class="cancion-fila__cuerpo">
+              <div class="cancion-fila__cabecera">
+                <span class="cancion-fila__titulo">Mi patria mis colegas</span>
+                <span class="cancion-fila__duracion">3:48</span>
+              </div>
+              <div class="cancion-fila__progreso" data-progreso></div>
+            </div>
+
+            <div class="cancion-fila__volumen">
+              <svg class="cancion-fila__vol-icono" viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                <path d="M3 10v4h4l5 5V5L7 10H3z"/>
+              </svg>
+              <input type="range" class="cancion-fila__vol-slider" min="0" max="1" step="0.01" value="0.5" data-volumen aria-label="Volumen">
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Mitad Derecha: CD y Enlaces -->
+    <section class="album-layout__right">
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/2eH9JDiUEMpk2PrCST9wJX?utm_source=generator&theme=0&si=48f9ce5f8f38475e" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="cd-reproductor">
+        <!-- El disco con la carátula -->
+        <div class="cd-disco-wrap">
+          <div class="cd-disco" id="cdDisco"></div>
+          <div class="cd-disco-centro"></div>
+        </div>
+        <div class="album-info-meta">
+          <h2 class="album-info-meta__texto">
+            E.P. The First <span class="album-info-meta__punto">·</span> <span class="album-info-meta__fecha">2026</span>
+          </h2>
+        </div>
+
+        <!-- Enlaces tipo SVG -->
+        <div class="contacto__redes">
+          <a href="https://www.youtube.com/@Trashtorna2porelRock" target="_blank" class="icon-circle icon-circle--lg" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="5" width="20" height="14" rx="4"/>
+              <path d="M10 9l6 3-6 3V9z" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://open.spotify.com/intl-es/artist/34YvT3tAy18dHDUmKqzZE9?si=517ca54a2de1491e" target="_blank" class="icon-circle icon-circle--lg" aria-label="Spotify">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M7 10c3.5-1 6.5-1 10 0.5M7.5 13c2.8-0.8 5.2-0.8 8 0.3M8 16c2-0.6 4-0.6 6 0.3" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
