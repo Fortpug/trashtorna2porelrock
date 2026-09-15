@@ -2,7 +2,32 @@
 // TRASHTORNA2 POR EL ROCK — main.js
 // ===================================================================
 
-// --- Menú hamburguesa (móvil) ---
+// ===================================================================
+// PRECARGA DE FONDOS PESADOS
+// ===================================================================
+(() => {
+  function extraerUrlImagen(valorCss) {
+    const match = valorCss && valorCss.match(/url\((['"]?)(.*?)\1\)/);
+    return match ? match[2] : null;
+  }
+
+  const precargarFondos = () => {
+    document.querySelectorAll('.seccion--foto').forEach(seccion => {
+      const url = extraerUrlImagen(getComputedStyle(seccion).getPropertyValue('--seccion-img'));
+      if (url) new Image().src = url;
+    });
+  };
+
+  window.addEventListener('load', () => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(precargarFondos, { timeout: 2000 });
+    } else {
+      setTimeout(precargarFondos, 1000);
+    }
+  });
+})();
+
+// Menú hamburguesa (móvil)
 const navToggle = document.getElementById('navToggle');
 const nav = document.querySelector('.nav');
 const navLinks = document.querySelectorAll('.nav__link');
@@ -29,7 +54,6 @@ if (navToggle && nav) {
   });
 }
 
-// --- Modal "Info y entradas" ---
 const modalConcierto = document.getElementById('modalConcierto');
 const btnInfoConcierto = document.getElementById('btnInfoConcierto');
 const btnCerrarModal = document.getElementById('btnCerrarModal');
@@ -43,7 +67,7 @@ if (modalConcierto && btnInfoConcierto) {
   });
 }
 
-// --- Cabecera flotante sobre el Hero (solo en Portada) ---
+// Cabecera flotante sobre el Hero (solo en Portada)
 const header = document.getElementById('header');
 
 if (header && header.classList.contains('header--hero-mode')) {
@@ -58,7 +82,7 @@ if (header && header.classList.contains('header--hero-mode')) {
   window.addEventListener('scroll', activarScrolled);
 }
 
-// --- Estuche de discografía (selector de álbumes tipo caja de CD) ---
+// Jewel-case
 const ventana = document.getElementById('jewelVentana');
 const playBtn = document.querySelector('.jewel-case__btn--play');
 const items = document.querySelectorAll('.jewel-case__item');
@@ -109,7 +133,7 @@ playBtn?.addEventListener('click', (e) => {
   }
 });
 
-// --- Reproductor de la página del álbum ---
+// Reproductor de la página del álbum
 const botonesAudio = document.querySelectorAll('.btn-play-pause');
 const disco = document.getElementById('cdDisco');
 let audioActual = new Audio();
@@ -222,7 +246,7 @@ if (botonesAudio.length > 0 && disco) {
   });
 }
 
-// --- Marca automáticamente el primer ticket de cada año (para el espacio extra entre años) ---
+// Marca automáticamente el primer ticket de cada año (para el espacio extra entre años)
 document.querySelectorAll('.ticket').forEach((ticket, i, todos) => {
   const anioAnterior = todos[i - 1]?.dataset.anio;
   if (i > 0 && ticket.dataset.anio !== anioAnterior) {
@@ -230,7 +254,7 @@ document.querySelectorAll('.ticket').forEach((ticket, i, todos) => {
   }
 });
 
-// --- Selector de años tipo rueda sincronizado (conciertos.html) ---
+// Selector de años tipo rueda sincronizado (conciertos.html)
 const rueda = document.getElementById('rueda');
 const ruedaWrap = document.getElementById('ruedaWrap');
 const tickets = document.getElementById('tickets');
@@ -388,7 +412,7 @@ if (rueda && ruedaWrap && tickets && ticketsWrap) {
   pintarRueda();
 }
 
-// --- Modales genéricos "Más detalles..." (conciertos.html, admite varios) ---
+// Modales genéricos
 document.querySelectorAll('[data-modal-open]').forEach(btn => {
   btn.addEventListener('click', () => {
     document.getElementById(btn.dataset.modalOpen)?.showModal();
@@ -401,7 +425,7 @@ document.querySelectorAll('[data-modal-close]').forEach(btn => {
   });
 });
 
-// --- Bloqueo absoluto de scroll de ventana con el mouse (Página Conciertos) ---
+// Bloqueo de scroll de ventana con el mouse (conciertos.html)
 if (document.body.classList.contains('pagina-conciertos')) {
   window.addEventListener('wheel', (e) => {
     // Si la rueda se usa fuera de los contenedores de la rueda de años o tickets, se anula
@@ -425,7 +449,7 @@ if (document.body.classList.contains('pagina-conciertos')) {
   }, { passive: false });
 }
 
-// --- Botón único de navegación entre secciones de Conciertos ---
+// Botón único de navegación entre secciones de Conciertos
 const btnToggle = document.getElementById('btnToggleConciertos');
 const btnTexto = document.getElementById('btnToggleTexto');
 const btnIcono = document.getElementById('btnToggleIcono');
@@ -438,7 +462,6 @@ if (btnToggle && seccionPasados) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (navFlotante) {
-        // 1. Inicia el desvanecimiento (fade-out)
         navFlotante.classList.add('is-hidden');
 
         clearTimeout(timeoutId);
@@ -457,7 +480,6 @@ if (btnToggle && seccionPasados) {
             navFlotante.classList.remove('is-top');
           }
 
-          // 2. Muestra el botón en su nueva posición (fade-in)
           navFlotante.classList.remove('is-hidden');
         }, 200); // Duración de la ocultación en ms
       }
@@ -467,7 +489,7 @@ if (btnToggle && seccionPasados) {
   observer.observe(seccionPasados);
 }
 
-// --- Imagen "de repuesto" para tickets sin cartel (conciertos.html) ---
+// Imagen "de repuesto" para tickets sin cartel (conciertos.html)
 const TOTAL_TICKETS_REPUESTO = 9;
 const RUTA_TICKETS_REPUESTO = 'img/tickets/';
 
@@ -478,12 +500,10 @@ document.querySelectorAll('.entrada__cartel').forEach(img => {
     this.dataset.repuestoAsignado = 'true';
 
     const numAleatorio = Math.floor(Math.random() * TOTAL_TICKETS_REPUESTO) + 1;
-    this.src = `${RUTA_TICKETS_REPUESTO}ticket${numAleatorio}.jpg`;
+    this.src = `${RUTA_TICKETS_REPUESTO}ticket${numAleatorio}.webp`;
   };
 
-  // Si la imagen ya terminó de cargar (con éxito o con fallo) antes de que
-  // este script se ejecutara, el evento "error" ya pasó y nunca lo veríamos.
-  // Comprobamos ese caso manualmente para las imágenes "más rápidas" en fallar.
+  // Evitar condiciones de carrera
   if (img.complete && img.naturalWidth === 0) {
     aplicarRepuesto.call(img);
   } else {
@@ -572,3 +592,251 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 750); // Tiempo alineado con la transición CSS (0.75s)
   }
 });
+
+// ===================================================================
+// DESPLEGABLES DE GALERÍA (colapsar/expandir año y evento)
+// ===================================================================
+(() => {
+  // Por defecto, los eventos empiezan colapsados
+  document.querySelectorAll('.galeria-evento').forEach((evento) => {
+    evento.classList.add('galeria-evento--colapsado');
+  });
+
+  document.querySelectorAll('.galeria-grupo__anio').forEach((titulo) => {
+    titulo.addEventListener('click', () => {
+      titulo.closest('.galeria-grupo')?.classList.toggle('galeria-grupo--colapsado');
+    });
+  });
+
+  document.querySelectorAll('.galeria-evento__titulo').forEach((titulo) => {
+    titulo.addEventListener('click', () => {
+      titulo.closest('.galeria-evento')?.classList.toggle('galeria-evento--colapsado');
+    });
+  });
+})();
+
+// ===================================================================
+// FILTRO DE GALERÍA (mostrar/ocultar por evento o por año)
+// ===================================================================
+(() => {
+  const btnFiltrar = document.getElementById('btnFiltrar');
+  const menuFiltro = document.getElementById('menuFiltro');
+  const btnTodos = document.querySelector('.galeria-filtro__todos');
+  const grupos = document.querySelectorAll('.galeria-grupo');
+
+  if (!btnFiltrar || !menuFiltro || !btnTodos || !grupos.length) return;
+
+  function valoresUnicos(selector, atributo) {
+    const vistos = new Map();
+    document.querySelectorAll(selector).forEach(el => {
+      const valor = el.dataset[atributo];
+      if (!vistos.has(valor)) {
+        const etiqueta = el.querySelector('.galeria-evento__titulo')?.textContent
+          ?? el.querySelector('.galeria-grupo__anio')?.textContent
+          ?? valor;
+        vistos.set(valor, etiqueta);
+      }
+    });
+    return vistos;
+  }
+
+  function mostrarSubmenu(criterio) {
+    const valores = criterio === 'evento'
+      ? valoresUnicos('.galeria-evento', 'evento')
+      : valoresUnicos('.galeria-grupo', 'anio');
+
+    const nivelSubmenu = menuFiltro.querySelector('[data-nivel="submenu"]');
+    nivelSubmenu.innerHTML = '<button class="galeria-filtro__volver">‹ Atrás</button>';
+
+    valores.forEach((etiqueta, valor) => {
+      const btn = document.createElement('button');
+      btn.className = 'galeria-filtro__opcion';
+      btn.dataset.criterio = criterio;
+      btn.dataset.valor = valor;
+      btn.textContent = etiqueta;
+      nivelSubmenu.appendChild(btn);
+    });
+
+    menuFiltro.querySelector('[data-nivel="principal"]').hidden = true;
+    nivelSubmenu.hidden = false;
+  }
+
+  function volverANivelPrincipal() {
+    menuFiltro.querySelector('[data-nivel="submenu"]').hidden = true;
+    menuFiltro.querySelector('[data-nivel="principal"]').hidden = false;
+  }
+
+  function cerrarMenu() {
+    menuFiltro.hidden = true;
+    volverANivelPrincipal();
+  }
+
+  // Aplica el filtro mostrando/ocultando grupos y eventos
+  function aplicarFiltro(criterio, valor) {
+    grupos.forEach(grupo => {
+      if (criterio === 'fecha') {
+        grupo.hidden = grupo.dataset.anio !== valor;
+        grupo.querySelectorAll('.galeria-evento').forEach(ev => ev.hidden = false);
+        return;
+      }
+      let algunoVisible = false;
+      grupo.querySelectorAll('.galeria-evento').forEach(ev => {
+        const coincide = ev.dataset.evento === valor;
+        ev.hidden = !coincide;
+        if (coincide) algunoVisible = true;
+      });
+      grupo.hidden = !algunoVisible;
+    });
+
+    btnTodos.classList.remove('is-active');
+    btnFiltrar.textContent = `Filtrar: ${valor} ▾`.replace(/-/g, ' ');
+    cerrarMenu();
+  }
+
+  function mostrarTodo() {
+    grupos.forEach(grupo => {
+      grupo.hidden = false;
+      grupo.querySelectorAll('.galeria-evento').forEach(ev => ev.hidden = false);
+    });
+    btnTodos.classList.add('is-active');
+    btnFiltrar.textContent = 'Filtrar ▾';
+    cerrarMenu();
+  }
+
+  // Eventos
+  btnFiltrar.addEventListener('click', () => {
+    menuFiltro.hidden = !menuFiltro.hidden;
+  });
+
+  btnTodos.addEventListener('click', mostrarTodo);
+
+  menuFiltro.addEventListener('click', (e) => {
+    const boton = e.target.closest('button');
+    if (!boton) return;
+
+    if (boton.classList.contains('galeria-filtro__volver')) {
+      volverANivelPrincipal();
+      return;
+    }
+    if (boton.dataset.valor) {
+      aplicarFiltro(boton.dataset.criterio, boton.dataset.valor);
+      return;
+    }
+    if (boton.dataset.criterio) {
+      mostrarSubmenu(boton.dataset.criterio);
+    }
+  });
+
+  // Cierra el menú si se hace clic fuera
+  document.addEventListener('click', (e) => {
+    if (!menuFiltro.hidden && !e.target.closest('.galeria-filtro')) {
+      cerrarMenu();
+    }
+  });
+})();
+
+// ===================================================================
+// LIGHTBOX DE GALERÍA (ampliar foto al hacer clic)
+// ===================================================================
+(() => {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const btnCerrar = document.getElementById('lightboxCerrar');
+  const contenedor = document.querySelector('.pagina-galeria .contenedor');
+
+  if (!lightbox || !lightboxImg || !contenedor) return;
+
+  const abrirLightbox = (foto) => {
+    lightboxImg.src = foto.src;
+    lightboxImg.alt = foto.alt || '';
+    lightbox.showModal();
+  };
+
+  contenedor.addEventListener('click', (e) => {
+    const foto = e.target.closest('.polaroid__photo');
+    if (foto) abrirLightbox(foto);
+  });
+
+  btnCerrar?.addEventListener('click', () => lightbox.close());
+
+  // Cierra al hacer clic en el fondo oscuro (fuera de la imagen)
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.close();
+  });
+
+  // Se dispara al cerrar por botón, clic fuera o tecla Esc (nativa de <dialog>)
+  lightbox.addEventListener('close', () => {
+    lightboxImg.src = '';
+  });
+})();
+
+// ===================================================================
+// ENLACE A GALERÍA EN LOS TICKETS (página Conciertos)
+// ===================================================================
+(() => {
+  if (typeof GALERIA_DATOS === 'undefined') return;
+  const tickets = document.querySelectorAll('.entrada.ticket');
+  if (!tickets.length) return;
+
+  // ID de evento de galería, indexado por su sufijo numérico (p. ej. "2608")
+  const idsPorSufijo = {};
+  GALERIA_DATOS.forEach(grupo => {
+    grupo.eventos.forEach(evento => {
+      const sufijo = evento.id.match(/(\d{4})$/)?.[1];
+      if (sufijo) idsPorSufijo[sufijo] = evento.id;
+    });
+  });
+
+  tickets.forEach(ticket => {
+    const numero = ticket.querySelector('.entrada__numero')?.textContent || '';
+    const sufijo = numero.match(/(\d{4})$/)?.[1];
+    const eventoId = sufijo && idsPorSufijo[sufijo];
+    if (!eventoId) return;
+
+    const span = ticket.querySelector('.entrada__texto-vertical');
+    if (span) {
+      const enlace = document.createElement('a');
+      enlace.href = `galeria.html?evento=${eventoId}`;
+      enlace.className = 'entrada__texto-vertical';
+      enlace.textContent = 'GALERÍA';
+      span.replaceWith(enlace);
+    }
+
+    // En móvil no hay talón asi que se añade un botón
+    const codigo = ticket.querySelector('.entrada__codigo');
+    if (codigo) {
+      const info = document.createElement('div');
+      info.className = 'entrada__codigo-info';
+      info.append(...codigo.children); // agrupa las barras y el número
+      codigo.appendChild(info);
+      codigo.classList.add('entrada__codigo--con-boton');
+
+      const boton = document.createElement('a');
+      boton.href = `galeria.html?evento=${eventoId}`;
+      boton.className = 'entrada__ver-galeria';
+      boton.textContent = 'Ver galería';
+      codigo.appendChild(boton);
+    }
+  });
+})();
+
+// ===================================================================
+// ABRIR UN EVENTO CONCRETO AL LLEGAR DESDE UN TICKET (galeria.html?evento=id)
+// ===================================================================
+(() => {
+  const eventoId = new URLSearchParams(window.location.search).get('evento');
+  if (!eventoId) return;
+
+  const evento = document.querySelector(`.galeria-evento[data-evento="${eventoId}"]`);
+  if (!evento) return;
+
+  evento.closest('.galeria-grupo')?.classList.remove('galeria-grupo--colapsado');
+
+  if (evento.classList.contains('galeria-evento--colapsado')) {
+    evento.querySelector('.galeria-evento__titulo')?.click();
+  }
+
+  requestAnimationFrame(() => {
+    evento.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();

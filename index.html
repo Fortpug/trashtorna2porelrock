@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="pagina-inicio">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
 </head>
-<body>
+<body class="pagina-inicio">
 
   <header class="header header--hero-mode" id="header">
     <div class="header__inner">
@@ -21,6 +22,7 @@
         <a href="index.html" class="nav__link nav__link--active">Inicio</a>
         <a href="conciertos.html" class="nav__link">Conciertos</a>
         <a href="album-the-first.html" class="nav__link">Música</a>
+        <a href="galeria.html" class="nav__link">Galería</a>
         <a href="index.html#contacto" class="nav__link">Contacto</a>
       </nav>
     </div>
@@ -82,13 +84,13 @@
                 
                 <!-- DISCO -->
                 <div class="jewel-case__item" data-link="album-the-first.html" data-nombre="EP The First" data-anio="2026">
-                  <img src="img/album-the-first.jpg" alt="Portada The First">
+                  <img src="img/album-the-first.webp" alt="Portada The First" loading="lazy" decoding="async">
                 </div>
 
                 <!-- PLACEHOLDER (PRÓXIMAMENTE) -->
                 <div class="jewel-case__item" data-link="#" data-nombre="Nuevo disco" data-anio="En camino">
                   <div class="album-placeholder">
-                    <img src="img/logo.jpg" alt="" class="album-placeholder__logo">
+                    <img src="img/logo.webp" alt="" class="album-placeholder__logo" loading="lazy" decoding="async">
                     <span class="album-placeholder__texto">Próximamente...</span>
                   </div>
                 </div>
@@ -150,11 +152,10 @@
             <span class="cartel__cinta cartel__cinta--tr" aria-hidden="true"></span>
             <span class="cartel__cinta cartel__cinta--bl" aria-hidden="true"></span>
             <span class="cartel__cinta cartel__cinta--br" aria-hidden="true"></span>
-            <img src="img/concierto-proximo.jpg" alt="Cartel de Primer Rabbit Fast Fest" class="cartel__imagen">
-            <!-- <img src="img/placeholder-proximo-concierto.jpg" alt="Placeholder próximo concierto" class="cartel__imagen"> -->
+            <img src="img/concierto-proximo.webp" alt="Cartel de Primer Rabbit Fast Fest" class="cartel__imagen" loading="lazy" decoding="async">
+            <!-- <img src="img/placeholder-proximo-concierto.webp" alt="Placeholder próximo concierto" class="cartel__imagen" loading="lazy" decoding="async"> -->
           </div>
 
-          <!-- La info, ahora directamente sobre el fondo oscuro -->
           <div class="concierto-info">
             <h3 class="concierto-info__evento">Rabbit Hole Fast Fest</h3>
 
@@ -177,7 +178,7 @@
               </div>
             </div>
 
-            <!-- <button class="btn btn--accent concierto-info__btn" id="btnInfoConcierto">Más detalles...</button> -->
+            <button class="btn btn--accent concierto-info__btn" id="btnInfoConcierto">Más detalles...</button>
           </div>
 
         </div>
@@ -202,7 +203,7 @@
           </div>
           
           <!-- Logo a la derecha -->
-          <img src="img/rabbit.png" alt="Logo de la comunidad" class="comunidad-banner__logo">
+          <img src="img/rabbit.png" alt="Logo de la comunidad" class="comunidad-banner__logo" loading="lazy" decoding="async">
 
         </article>
       </div>
@@ -260,11 +261,11 @@
     </section>
   </main>
   <dialog id="modalConcierto" class="modal">
-    <h3 class="tarjeta__titulo">Rabbit Fast Fest</h3>
-    <p><span class="modal__etiqueta">Fecha:</span><br> Sábado 29 de agosto 2026, 21:00h</p>
-    <p><span class="modal__etiqueta">Ubicación:</span><br> Taberna César, Barriada de Alcora (Canjáyar). Enlace a Google Maps <a href="https://maps.app.goo.gl/MYGNKJ98c8EE8YvZ9" target=_blank class="modal__enlace">aquí</a>.</p>
-    <p><span class="modal__etiqueta">Entrada:</span><br> Gratis</p>
-    <p><span class="modal__etiqueta">Bandas:</span><br> Trashtorna2 por el Rock, Satürno</p>
+    <h3 class="tarjeta__titulo">Rabbit Hole Fast Fest</h3>
+    <p><span class="modal__etiqueta">Fecha:</span><br> Domingo 8 de noviembre 2026, 18:00h</p>
+    <p><span class="modal__etiqueta">Ubicación:</span><br> Pub Dragonfly, Almería.<br> Enlace a Google Maps <a href="https://maps.app.goo.gl/qaFdtExNk8kB47qP6" target=_blank class="modal__enlace">aquí</a>.</p>
+    <p><span class="modal__etiqueta">Entrada:</span><br> 6€</p>
+    <p><span class="modal__etiqueta">Bandas:</span><br> Trashtorna2 por el Rock, Satürno, We Lost The West</p>
     <button id="btnCerrarModal" class="btn btn--accent">Cerrar</button>
   </dialog>
 
