@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trashtorna2 por el Rock</title>
+  <style> html {background-color: black;} body { background-color: black; opacity: 0; } </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -36,7 +37,7 @@
   </nav>
   <main class="app-wrapper">
     <!-- ============ HERO ============ -->
-    <section class="hero">
+    <section class="hero" data-bg="i_hero">
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__content">
         <h1 class="hero__title">Trashtorna2 por el Rock</h1>
@@ -52,17 +53,17 @@
           <div class="bio__wrapper" id="bioWrapper">
             <div class="bio__bloque">
               <span class="bio__subtitulo">El Estilo</span>
-              <p class="bio__texto">Rock de barrio en verso libre. Guitarras desenfadadas, batería con pegada y bajo con mordida.</p>
+              <p class="bio__texto" data-field="t_propuesta_musical_estilo">Rock de barrio en verso libre. Guitarras desenfadadas, batería con pegada y bajo con mordida.</p>
             </div>
 
             <div class="bio__bloque">
               <span class="bio__subtitulo">La Letra</span>
-              <p class="bio__texto">Historias reales de vivencias del día a día para que te veas reflejado en cada canción.</p>
+              <p class="bio__texto" data-field="t_propuesta_musical_letra">Historias reales de vivencias del día a día para que te veas reflejado en cada canción.</p>
             </div>
 
             <div class="bio__bloque">
               <span class="bio__subtitulo">El Directo</span>
-              <p class="bio__texto">Rock honesto para todo tipo de escenarios: desde festivales y pubs hasta asociaciones y bares.</p>
+              <p class="bio__texto" data-field="t_propuesta_musical_directo">Rock honesto para todo tipo de escenarios: desde festivales y pubs hasta asociaciones y bares.</p>
             </div>
           </div>
         </article>
@@ -157,24 +158,24 @@
           </div>
 
           <div class="concierto-info">
-            <h3 class="concierto-info__evento">Rabbit Hole Fast Fest</h3>
+            <h3 class="concierto-info__evento" data-field="t_prox_concierto_titulo">Rabbit Hole Fast Fest</h3>
 
             <div class="concierto-info__datos">
               <div class="concierto-info__dato">
                 <span class="concierto-info__dato-label">Fecha</span>
-                <span class="concierto-info__dato-valor">8 noviembre</span>
+                <span class="concierto-info__dato-valor" data-field="t_prox_concierto_fecha">8 noviembre</span>
               </div>
               <div class="concierto-info__dato">
                 <span class="concierto-info__dato-label">Hora</span>
-                <span class="concierto-info__dato-valor">18:00</span>
+                <span class="concierto-info__dato-valor" data-field="t_prox_concierto_hora">18:00</span>
               </div>
               <div class="concierto-info__dato">
                 <span class="concierto-info__dato-label">Ubicación</span>
-                <span class="concierto-info__dato-valor">Pub Dragonfly, Almería</span>
+                <span class="concierto-info__dato-valor" data-field="t_prox_concierto_ubicacion">Pub Dragonfly, Almería</span>
               </div>
               <div class="concierto-info__dato">
                 <span class="concierto-info__dato-label">Entrada</span>
-                <span class="concierto-info__dato-valor">6€</span>
+                <span class="concierto-info__dato-valor" data-field="t_prox_concierto_entrada">6€</span>
               </div>
             </div>
 
@@ -196,8 +197,8 @@
             <span class="comunidad-banner__etiqueta">Pertenecemos a</span>
             <h2 class="comunidad-banner__titulo">Rabbit Hole Distortion Records</h2>
             <p class="comunidad-banner__texto">
-              <b>Rabbit Hole Distortion Records</b> nace con la intención de reunir talento, impulsar proyectos y fortalecer una comunidad de músicos y seguidores que entienden el rock como una forma de expresión honesta y sin artificios.
-              <b>Autogestión</b>, sello boutique de calidad, comunidad rockera de autor y construcción de un movimiento underground.
+                <b>Rabbit Hole Distortion Records</b> nace con la intención de reunir talento, impulsar proyectos y fortalecer una comunidad de músicos y seguidores que entienden el rock como una forma de expresión honesta y sin artificios.
+                <b>Autogestión</b>, sello boutique de calidad, comunidad rockera de autor y construcción de un movimiento underground.
               <br><b class="comunidad--lema">Música real para gente auténtica</b>
             </p>
           </div>
@@ -260,12 +261,17 @@
       </div>
     </section>
   </main>
+
+  <!-- ============ MODAL PROX CONCIERTO ============ -->
   <dialog id="modalConcierto" class="modal">
     <h3 class="tarjeta__titulo">Rabbit Hole Fast Fest</h3>
-    <p><span class="modal__etiqueta">Fecha:</span><br> Domingo 8 de noviembre 2026, 18:00h</p>
-    <p><span class="modal__etiqueta">Ubicación:</span><br> Pub Dragonfly, Almería.<br> Enlace a Google Maps <a href="https://maps.app.goo.gl/qaFdtExNk8kB47qP6" target=_blank class="modal__enlace">aquí</a>.</p>
-    <p><span class="modal__etiqueta">Entrada:</span><br> 6€</p>
-    <p><span class="modal__etiqueta">Bandas:</span><br> Trashtorna2 por el Rock, Satürno, We Lost The West</p>
+    <p><span class="modal__etiqueta">Fecha y hora</span>
+      <br><span data-field="t_prox_concierto_extendido_fecha"> 8 de noviembre</span>
+      <br><span data-field="t_prox_concierto_extendido_hora"> 18:00h</span>
+    </p>
+    <p><span class="modal__etiqueta">Ubicación:</span><br><span data-field="t_prox_concierto_extendido_ubicacion_txt"> Pub Dragonfly, Almería.</span><br> Enlace a Google Maps <a data-field="e_prox_concierto_extendido_ubicacion_link" target=_blank class="modal__enlace">aquí</a>.</p>
+    <p><span class="modal__etiqueta">Entrada:</span><br><span data-field="t_prox_concierto_extendido_entrada"> 6€</span></p>
+    <p><span class="modal__etiqueta">Bandas:</span><br><span data-field="t_prox_concierto_extendido_bandas"> Trashtorna2 por el Rock, Satürno, We Lost The West</span></p>
     <button id="btnCerrarModal" class="btn btn--accent">Cerrar</button>
   </dialog>
 

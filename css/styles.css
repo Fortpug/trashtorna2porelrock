@@ -87,14 +87,26 @@ html {
 }
 
 body {
+  opacity: 0;
   background: var(--color-fondo);
   background-image: var(--textura-grano);
   font-family: var(--fuente-texto);
   color: var(--color-texto-claro);
   line-height: 1.5;
   
+  animation: fadeIn 0.3s ease-in-out forwards;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeIn{
+  from { 
+    opacity:0; 
+  } 
+  to { 
+    opacity:1; 
+  }
 }
 
 body.pagina-galeria{

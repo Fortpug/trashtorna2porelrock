@@ -6,25 +6,32 @@
 // PRECARGA DE FONDOS PESADOS
 // ===================================================================
 (() => {
-  function extraerUrlImagen(valorCss) {
-    const match = valorCss && valorCss.match(/url\((['"]?)(.*?)\1\)/);
-    return match ? match[2] : null;
-  }
+  fetch('contenido.json')
+    .then(res => res.json())
+    .then(data => {
+      document.querySelectorAll('[data-field]').forEach(el => {
+        const clave = el.getAttribute('data-field');
+        const valor = data[clave];
+        if (valor === undefined) return;
 
-  const precargarFondos = () => {
-    document.querySelectorAll('.seccion--foto').forEach(seccion => {
-      const url = extraerUrlImagen(getComputedStyle(seccion).getPropertyValue('--seccion-img'));
-      if (url) new Image().src = url;
-    });
-  };
+        if (el.tagName === 'IMG' || el.tagName === 'IFRAME') el.src = valor;
+        else if (el.tagName === 'A') el.href = valor;
+        else el.innerText = valor;
+      });
 
-  window.addEventListener('load', () => {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(precargarFondos, { timeout: 2000 });
-    } else {
-      setTimeout(precargarFondos, 1000);
-    }
-  });
+      document.querySelectorAll('[data-bg]').forEach(el => {
+        const clave = el.getAttribute('data-bg');
+        const valor = data[clave];
+
+        if (valor) {
+          el.style.setProperty('--seccion-img', `url("${valor}")`);
+
+          const img = new Image();
+          img.src = valor;
+        }
+      });
+    })
+    .catch(err => console.error('Error al cargar datos:', err));
 })();
 
 // Menú hamburguesa (móvil)

@@ -1,0 +1,23 @@
+{
+    "t_propuesta_musical_estilo": "Rock de barrio en verso libre. Guitarras desenfadadas, batería con pegada y bajo con mordida.",
+    "t_propuesta_musical_letra": "Historias reales de vivencias del día a día para que te veas reflejado en cada canción.",
+    "t_propuesta_musical_directo": "Rock honesto para todo tipo de escenarios: desde festivales y pubs hasta asociaciones y bares.",
+
+    "t_prox_concierto_titulo": "II Rabbit Hole Fest",
+    "t_prox_concierto_fecha": "8 noviembre",
+    "t_prox_concierto_hora": "18:00",
+    "t_prox_concierto_ubicacion": "Pub Dragonfly, Almería",
+    "t_prox_concierto_entrada": "6€",
+
+    "t_prox_concierto_extendido_fecha": "Domingo, 8 de noviembre",
+    "t_prox_concierto_extendido_hora": "18:00h",
+    "t_prox_concierto_extendido_ubicacion_txt": "Pub Dragonfly, Almería.",
+    "e_prox_concierto_extendido_ubicacion_link": "https://maps.app.goo.gl/qaFdtExNk8kB47qP6",
+    "e_prox_concierto_extendido_ubicacion_iframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.4223787376864!2d-2.4583151236889!3d36.84244006531661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7a9dfe0148832f%3A0x436cbc0ff6308a2d!2sDragonfly%20Rock%20Caf%C3%A9!5e1!3m2!1ses!2ses!4v1788970841850!5m2!1ses!2ses",
+    "t_prox_concierto_extendido_entrada": "6€",
+    "t_prox_concierto_extendido_bandas": "Trashtorna2 por el Rock, Satürno, We Lost The West",
+
+    
+    "i_hero": "img/hero.webp",
+    "i_proximo_concierto": "img/concierto-proximo.webp"
+}
