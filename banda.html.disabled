@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La banda — Nombre Banda</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+    <a href="index.html" class="header__logo">NOMBRE BANDA</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav">
+      <a href="index.html" class="nav__link">Inicio</a>
+      <a href="conciertos.html" class="nav__link">Conciertos</a>
+      <a href="discografia.html" class="nav__link">Discografía</a>
+      <a href="galeria.html" class="nav__link">Galería</a>
+      <a href="banda.html" class="nav__link nav__link--active">La banda</a>
+      <a href="index.html#contacto" class="nav__link">Contacto</a>
+    </nav>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" id="navMobile">
+    <a href="index.html" class="nav-mobile__link">Inicio</a>
+    <a href="conciertos.html" class="nav-mobile__link">Conciertos</a>
+    <a href="discografia.html" class="nav-mobile__link">Discografía</a>
+    <a href="galeria.html" class="nav-mobile__link">Galería</a>
+    <a href="banda.html" class="nav-mobile__link">La banda</a>
+    <a href="index.html#contacto" class="nav-mobile__link">Contacto</a>
+  </nav>
+
+  <div class="contenedor">
+    <h1 class="section-title pagina-titulo">La banda</h1>
+
+    <!-- ============ INTEGRANTES ============ -->
+    <section id="integrantes" class="seccion">
+      <p class="section-label">Integrantes</p>
+      <div class="grid-integrantes">
+        <article class="paper-card paper-card--tilt-left integrante-card">
+          <span class="tape tape--top-center"></span>
+          <img src="img/integrante-vadi.jpg" alt="Vadi" class="paper-card__img">
+          <p class="paper-card__title">Vadi</p>
+          <p class="paper-card__meta">Voz y guitarra</p>
+        </article>
+        <article class="paper-card paper-card--tilt-right integrante-card">
+          <span class="tape tape--top-center"></span>
+          <img src="img/integrante-dario.jpg" alt="Darío" class="paper-card__img">
+          <p class="paper-card__title">Darío</p>
+          <p class="paper-card__meta">Batería</p>
+        </article>
+        <article class="paper-card paper-card--tilt-right integrante-card">
+          <span class="tape tape--top-center"></span>
+          <img src="img/integrante-fran.jpg" alt="Fran" class="paper-card__img">
+          <p class="paper-card__title">Fran</p>
+          <p class="paper-card__meta">Bajo y letras</p>
+        </article>
+        <article class="paper-card paper-card--tilt-left integrante-card">
+          <span class="tape tape--top-center"></span>
+          <img src="img/integrante-miguel.jpg" alt="Miguel" class="paper-card__img">
+          <p class="paper-card__title">Miguel</p>
+          <p class="paper-card__meta">Guitarra rítmica</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ COLABORADORES ============ -->
+    <section id="colaboradores" class="seccion">
+      <p class="section-label">Colaboradores frecuentes</p>
+      <div class="grid-integrantes">
+        <article class="paper-card paper-card--tilt-right integrante-card">
+          <span class="tape tape--top-center"></span>
+          <img src="img/colaborador-jose-luis.jpg" alt="Jose Luis" class="paper-card__img">
+          <p class="paper-card__title">Jose Luis</p>
+          <p class="paper-card__meta">Coros y solista</p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

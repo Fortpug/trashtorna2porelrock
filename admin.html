@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin · Trashtorna2 por el Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pagina-galeria">
+
+  <div class="contenedor">
+    <h1 class="pagina-titulo">Panel de administración</h1>
+
+    <!-- MENSAJES -->
+    <article class="tarjeta" id="estadoCard" hidden>
+      <p class="tarjeta__meta" id="estado" role="status" aria-live="polite"></p>
+    </article>
+
+    <!-- ACCESO -->
+    <article class="tarjeta" id="acceso">
+      <h2 class="tarjeta__titulo">Acceso</h2>
+      <label>
+        <span class="modal__etiqueta">Contraseña</span><br>
+        <input id="token" type="password" size="32" autocomplete="off" autocapitalize="off" spellcheck="false">
+      </label>
+      <br><br>
+      <button id="btnEntrar" class="btn btn--accent" type="button">Entrar</button>
+    </article>
+
+    <!-- EDITOR -->
+    <form class="tarjeta" id="editor" hidden onsubmit="return false"></form>
+  </div>
+
+<script>
+(() => {
+  // ---------- Configuración ----------
+  const REPO = 'fortpug/trashtorna2porelrock';
+  const RUTA = 'contenido.json';
+  const API = `https://api.github.com/repos/${REPO}/contents/${RUTA}`;
+
+  const GRUPOS = [
+    { titulo: 'Propuesta musical', campos: [
+      ['t_propuesta_musical_estilo', 'El estilo', 'area'],
+      ['t_propuesta_musical_letra', 'La letra', 'area'],
+      ['t_propuesta_musical_directo', 'El directo', 'area'] ] },
+    { titulo: 'Próximo concierto (página principal)', campos: [
+      ['t_prox_concierto_titulo', 'Nombre del evento'],
+      ['t_prox_concierto_fecha', 'Fecha'],
+      ['t_prox_concierto_hora', 'Hora'],
+      ['t_prox_concierto_ubicacion', 'Ubicación'],
+      ['t_prox_concierto_entrada', 'Entrada'] ] },
+    { titulo: 'Próximo concierto (página conciertos)', campos: [
+      ['t_prox_concierto_extendido_fecha', 'Fecha'],
+      ['t_prox_concierto_extendido_hora', 'Hora'],
+      ['t_prox_concierto_extendido_ubicacion_txt', 'Ubicación'],
+      ['e_prox_concierto_extendido_ubicacion_link', 'Enlace a Google Maps', 'url'],
+      ['e_prox_concierto_extendido_ubicacion_iframe', 'Mapa incrustado (URL del iframe)', 'url'],
+      ['t_prox_concierto_extendido_entrada', 'Entrada'],
+      ['t_prox_concierto_extendido_bandas', 'Bandas', 'area'] ] }
+  ];
+
+  const $ = id => document.getElementById(id);
+  const editor = $('editor'), acceso = $('acceso');
+  const b64enc = s => { let bin = ''; new TextEncoder().encode(s).forEach(c => bin += String.fromCharCode(c)); return btoa(bin); };
+  const b64dec = s => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g, '')), c => c.charCodeAt(0)));
+  const msg = t => { $('estado').textContent = t; $('estadoCard').hidden = !t; };
+  const guardarToken = t => { try { sessionStorage.setItem('gh_token', t); } catch (e) {} };
+  const leerToken = () => { try { return sessionStorage.getItem('gh_token') || ''; } catch (e) { return ''; } };
+  const el = (tag, clase, texto) => {
+    const n = document.createElement(tag);
+    if (clase) n.className = clase;
+    if (texto) n.textContent = texto;
+    return n;
+  };
+
+  let token = '';
+  let datos = {};
+
+  async function gh(metodo, cuerpo) {
+    const res = await fetch(API, {
+      method: metodo,
+      cache: 'no-store',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        ...(cuerpo ? { 'Content-Type': 'application/json' } : {})
+      },
+      body: cuerpo ? JSON.stringify(cuerpo) : undefined
+    });
+    if (!res.ok) {
+      const e = new Error(String(res.status));
+      e.status = res.status;
+      throw e;
+    }
+    return res.json();
+  }
+
+  function explicarError(e) {
+    if (e.status === 401) return 'La contraseña no es válida o ha caducado.';
+    if (e.status === 403) return 'No tiene permiso.';
+    if (e.status === 404) return 'No se encuentra el fichero de contenidos.';
+    if (e.status === 409 || e.status === 422) return 'El archivo ha cambiado mientras editabas. Vuelve a entrar e inténtalo de nuevo.';
+    return 'No se pudo conectar. Revisa tu conexión.';
+  }
+
+  async function cargar() {
+    const r = await gh('GET');
+    datos = JSON.parse(b64dec(r.content));
+    return r.sha;
+  }
+
+  // ---------- Formulario ----------
+  function construir() {
+    editor.innerHTML = '';
+    const usadas = new Set();
+
+    const grupo = (titulo, campos) => {
+      editor.appendChild(el('h2', 'tarjeta__titulo', titulo));
+      campos.forEach(([clave, etiqueta, tipo]) => {
+        usadas.add(clave);
+        const actual = datos[clave];
+        const label = el('label');
+        label.appendChild(el('span', 'modal__etiqueta', etiqueta));
+        label.appendChild(document.createElement('br'));
+
+        let campo;
+        if (tipo === 'area') { campo = el('textarea'); campo.rows = 4; campo.cols = 32; }
+        else { campo = el('input'); campo.type = tipo === 'url' ? 'url' : 'text'; campo.size = 32; }
+        campo.dataset.clave = clave;
+        campo.placeholder = actual !== undefined ? actual : '(sin valor todavía)';
+        label.appendChild(campo);
+        editor.appendChild(label);
+
+        if (actual) {
+          editor.appendChild(document.createElement('br'));
+          const usar = el('a', 'modal__enlace', 'Partir del valor actual');
+          usar.href = '#';
+          usar.setAttribute('role', 'button');
+          usar.addEventListener('click', e => { e.preventDefault(); campo.value = actual; campo.focus(); });
+          editor.appendChild(usar);
+        }
+        editor.append(document.createElement('br'), document.createElement('br'));
+      });
+    };
+
+    GRUPOS.forEach(g => grupo(g.titulo, g.campos));
+    const otros = Object.keys(datos).filter(k => !usadas.has(k) && !k.startsWith('i_')).map(k => [k, k]);
+    if (otros.length) grupo('Otros', otros);
+
+    editor.appendChild(el('p', 'tarjeta__meta', 'Deja vacío lo que no quieras cambiar. Los cambios tardan aproximadamente un minuto en verse en la web.'));
+    editor.append(document.createElement('br'));
+
+    const btnGuardar = el('button', 'btn btn--accent', 'Guardar cambios');
+    btnGuardar.type = 'button';
+    btnGuardar.addEventListener('click', () => guardar(btnGuardar));
+    editor.appendChild(btnGuardar);
+    editor.append(' ');
+
+    const salirLink = el('a', 'modal__enlace', 'Salir');
+    salirLink.href = '#';
+    salirLink.setAttribute('role', 'button');
+    salirLink.addEventListener('click', e => { e.preventDefault(); salir(); });
+    editor.appendChild(salirLink);
+  }
+
+  function mostrarEditor() {
+    acceso.hidden = true; editor.hidden = false;
+    construir();
+  }
+
+  // ---------- Acciones ----------
+  async function entrar() {
+    token = $('token').value.trim() || leerToken();
+    if (!token) return msg('Introduce la contraseña.');
+    $('btnEntrar').disabled = true;
+    msg('Comprobando contraseña...');
+    try {
+      await cargar();
+      guardarToken(token);
+      $('token').value = '';
+      msg('');
+      mostrarEditor();
+    } catch (e) {
+      msg(e instanceof SyntaxError ? 'contenido.json no tiene un formato válido.' : explicarError(e));
+    } finally {
+      $('btnEntrar').disabled = false;
+    }
+  }
+
+  async function guardar(btn) {
+    const cambios = {};
+    editor.querySelectorAll('[data-clave]').forEach(c => {
+      const v = c.value.trim();
+      if (v !== '' && v !== datos[c.dataset.clave]) cambios[c.dataset.clave] = v;
+    });
+    if (!Object.keys(cambios).length) return msg('No hay cambios que guardar.');
+
+    btn.disabled = true;
+    msg('Guardando…');
+    try {
+      // Se vuelve a leer justo antes para no pisar cambios hechos desde otro sitio
+      const sha = await cargar();
+      Object.assign(datos, cambios);
+      await gh('PUT', {
+        message: 'Actualizar contenido.json desde admin',
+        content: b64enc(JSON.stringify(datos, null, 4) + '\n'),
+        sha
+      });
+      construir();
+      msg(`Guardado (${Object.keys(cambios).length} campo/s). Se verá en la web en un minuto aproximadamente.`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      msg(explicarError(e));
+      btn.disabled = false;
+    }
+  }
+
+  function salir() {
+    try { sessionStorage.removeItem('gh_token'); } catch (e) {}
+    token = ''; datos = {};
+    editor.hidden = true; acceso.hidden = false;
+    msg('');
+  }
+
+  $('btnEntrar').addEventListener('click', entrar);
+  $('token').addEventListener('keydown', e => { if (e.key === 'Enter') entrar(); });
+
+  // Reentrada automática si la pestaña ya tenía sesión
+  if (leerToken()) entrar();
+})();
+</script>
+</body>
+</html>

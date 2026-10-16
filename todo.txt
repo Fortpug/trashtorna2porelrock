@@ -1,0 +1,10 @@
+==== PÁGINA CONCIERTOS ====
+- animación de scroll al pulsar botón "Conciertos pasados" o "Conciertos próximos"
+===========================
+
+==== PÁGINA REPRODUCTOR (móvil)====
+- rehacer?
+============================
+
+==== PÁGINA GALERÍA ====
+========================
