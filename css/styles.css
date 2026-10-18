@@ -417,6 +417,8 @@ a { color: inherit; }
   transform: scale(1.05);
 }
 
+.entrada-enlace { display: none; }
+
 /* ===================================================================
    TÍTULOS
    =================================================================== */
@@ -2928,4 +2930,14 @@ a.entrada__texto-vertical:focus-visible {
     flex-wrap: wrap;
     text-align: center;
   }
+
+  .entrada-precio { display: none; }
+.entrada-enlace {
+  display: block;
+  color: var(--color-acento-claro);
+  text-decoration: underline;
+}
+.btn-entrada { display: none !important; }
+
+.pagina-conciertos .concierto-info__ubicacion { display: none !important; }
 }
