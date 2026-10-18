@@ -392,6 +392,30 @@ a { color: inherit; }
   border: 1px solid var(--color-acento);
   color: var(--color-acento-claro);
 }
+.btn-entrada {
+  --entrada-bg: var(--color-papel);
+  display: inline-block;
+  align-self: flex-start;          
+  margin-bottom: var(--space-lg);
+  padding: 18px 52px;
+  font-family: var(--fuente-titulo);
+  font-size: 26px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-acento);
+  background:
+    radial-gradient(circle at 0 50%, transparent 9px, var(--entrada-bg) 9.5px) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 50%, transparent 9px, var(--entrada-bg) 9.5px) right / 51% 100% no-repeat;
+  filter: drop-shadow(0 4px 8px rgba(var(--rgb-negro), 0.5));
+  transform-origin: left center;
+  transition: transform .2s ease, color .2s ease;
+}
+.btn-entrada:hover {
+  --entrada-bg: var(--color-acento);
+  color: var(--color-texto-claro-fuerte);
+  transform: scale(1.05);
+}
 
 /* ===================================================================
    TÍTULOS
@@ -1197,6 +1221,21 @@ a { color: inherit; }
   border: 2px solid var(--color-acento);
   box-shadow: var(--sombra-elevada);
   margin-bottom: var(--space-sm);
+}
+
+.concierto-info__mapa-fila {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+.concierto-info__mapa-fila .concierto-info__mapa {
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+.concierto-info__mapa-fila .btn-entrada {
+  align-self: center;
+  margin-top: 0;
 }
 
 .concierto-info__mapa iframe {
@@ -2535,6 +2574,11 @@ a.entrada__texto-vertical:focus-visible {
     filter: none !important;
   }
 
+  /* Index: oculta "Más detalles" en móvil (el id solo existe en index) */
+  #btnInfoConcierto {
+    display: none;
+  }
+
   .entradas-grid, 
   .tickets-container {
     display: flex;
@@ -2735,12 +2779,51 @@ a.entrada__texto-vertical:focus-visible {
   .pagina-conciertos{
     background-size: cover;
   }
+
+  .pagina-conciertos #proximos {
+    padding-top: 50px;   /* antes 60px */
+  }
+  .pagina-conciertos .cartel {
+  max-width: 150px;   /* antes 170px */
+  }
+  .pagina-conciertos #proximos .contenedor {
+    padding-bottom: 100px;   /* más hueco abajo */
+  }
+  .pagina-conciertos .concierto-cuerpo {
+  gap: var(--space-xl);   /* 24px entre cartel e info (antes 16px) */
+  }
+  .pagina-conciertos .concierto-info {
+    margin-top: 0;          /* el espacio lo da el gap, así no se suma */
+  }
+
+  .pagina-conciertos .concierto-info__datos {
+    gap: var(--space-sm) var(--space-lg);   /* vertical 8px (antes 24px), horizontal 24px (antes 40px) */
+    padding-bottom: var(--space-md);        /* antes 24px, espacio hasta la línea discontinua */
+    margin-bottom: var(--space-sm);         /* antes 16px */
+  }
+
   .concierto-info__evento{
     font-size: 2rem;
   }
   .concierto-info__ubicacion{
     display: none !important;
   }
+
+  /* Muestra la ubicación solo para que se vea el botón */
+  .pagina-conciertos .concierto-info__ubicacion {
+    display: flex !important;
+    justify-content: center;
+    margin-top: var(--space-sm);
+  }
+  /* Oculta en móvil todo lo demás: etiqueta, dirección, mapa y enlace */
+  .pagina-conciertos .concierto-info__ubicacion > :not(.concierto-info__mapa-fila),
+  .pagina-conciertos .concierto-info__mapa {
+    display: none;
+  }
+  .pagina-conciertos .concierto-info__mapa-fila {
+    margin: 0;
+  }
+
   .conciertos-nav-flotante {
   position: fixed;
   bottom: 20px;
