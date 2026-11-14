@@ -13,6 +13,7 @@ const GALERIA_DATOS = [
   {
     anio: '2026',
     eventos: [
+      { id: 'spring-2608',    titulo: 'Spring Fest XII',                      prefijo: 'img/galeria/2026/2608/2608' },
       { id: 'rabbit-2607',    titulo: 'I Rabbit Rock Fast Fest',              prefijo: 'img/galeria/2026/2607/2607' },
       { id: 'clasijazz-2606', titulo: 'Clasijazz ft. The River Band',         prefijo: 'img/galeria/2026/2606/2606' },
       { id: 'molinillo-2605', titulo: 'Concierto Molinillo de la Abuela',     prefijo: 'img/galeria/2026/2605/2605' },

@@ -1,3 +1,7 @@
+==== PÁGINA PRINCIPAL ====
+- sustituir botón más detalles (abre modal) por enlace a conciertos.html
+==========================
+
 ==== PÁGINA CONCIERTOS ====
 - animación de scroll al pulsar botón "Conciertos pasados" o "Conciertos próximos"
 ===========================
